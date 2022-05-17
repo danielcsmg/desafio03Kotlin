@@ -2,6 +2,11 @@ package menus
 
 class CabecalhoMenu {
     companion object Menu{
+        fun menuBoasVindas(){
+            println("Bem vindo à Lanchonete SimCity!!!")
+            println("Faça seu pedido.")
+            println()
+        }
         fun opcoesPricipal(){
             println("Digite uma opção:")
             println("[1] Adicionar mais itens;")

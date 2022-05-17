@@ -133,8 +133,8 @@ class Menu {
     private fun removerPedido() {
         while (true) {
             val codigo = getCode()
-            carrinho.produtos.forEach { (produto, _) ->
-                if (codigo == produto.getCodigo()) {
+            carrinho.produtos.forEach { (produto, qtdProduto) ->
+                if (codigo == produto.getCodigo() && qtdProduto > 0) {
                     carrinho.removerProduto(produto)
                     println("Pedido removido!")
                     return
@@ -160,7 +160,7 @@ class Menu {
 
     private fun getCode(): Int {
         while (true){
-            println("Qual o código do produto que deseja alterar?")
+            println("Digite o código do produto:")
             val code = readln().toIntOrNull() ?: -1
             if(code < 0){
                 println("Valor inválido! Tente novamente.")
@@ -183,7 +183,7 @@ class Menu {
                 }
                 4 -> {
                     pagarEmDinheiro()
-                    continue
+                    exitProcess(0)
                 }
                 0 -> {
                     println("Pedido cancelado. :(")
